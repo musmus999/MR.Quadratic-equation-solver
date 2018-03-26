@@ -1,0 +1,30 @@
+<!DOCTYPE html> 
+<html>
+	<head> 
+		<title>Schedule</title>
+		<link href= "quadratic.css" type= text/css rel= stylesheet>
+	</head> 
+	<body>
+
+
+		<input type = "value" placeholder = "enter a" id = a>
+		<input type = "value" placeholder = "enter b" id = b>
+		<input type = "value" placeholder = "enter c" id = c>
+		 <input type = "button" value = "do the math" onclick = "solvex()">
+
+
+		<script>
+				function solvex(){	
+					
+					let a = document.getElementById("a").value;
+					let b = document.getElementById("b").value;
+					let c = document.getElementById("c").value;
+					
+					let x = a + b + c
+					
+					console.log(x)
+				}
+		
+		</script>
+	</body>
+</html>
