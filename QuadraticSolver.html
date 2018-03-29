@@ -7,9 +7,9 @@
 	<body>
 
 
-		<input type = "value" placeholder = "enter a" id = a>
-		<input type = "value" placeholder = "enter b" id = b>
-		<input type = "value" placeholder = "enter c" id = c>
+		<input type = "number" placeholder = "enter a" id = a>
+		<input type = "number" placeholder = "enter b" id = b>
+		<input type = "number" placeholder = "enter c" id = c>
 		 <input type = "button" value = "do the math" onclick = "solvex()">
 
 
@@ -20,7 +20,7 @@
 					let b = document.getElementById("b").value;
 					let c = document.getElementById("c").value;
 					
-					let x = a + b + c
+					let x = number(a) + number(b) + number(c)
 					
 					console.log(x)
 				}
