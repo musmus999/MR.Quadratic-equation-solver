@@ -1,15 +1,15 @@
 <!DOCTYPE html> 
 <html>
 	<head> 
-		<title>Schedule</title>
+		<title>Q</title>
 		<link href= "quadratic.css" type= text/css rel= stylesheet>
 	</head> 
 	<body>
 
 
-		<input type = "number" placeholder = "enter a" id = a>
-		<input type = "number" placeholder = "enter b" id = b>
-		<input type = "number" placeholder = "enter c" id = c>
+		<input type = "number" placeholder = "enter a" id = "a">
+		<input type = "number" placeholder = "enter b" id = "b">
+		<input type = "number" placeholder = "enter c" id = "c">
 		 <input type = "button" value = "do the math" onclick = "solvex()">
 
 
@@ -20,17 +20,18 @@
 					let b = document.getElementById("b").value;
 					let c = document.getElementById("c").value;
 					
-					let x = Number(a) + Number(b) + Math.pow(Number(c),2);
+					let x = a + b + c
 					
-				/*  
-					let x1 = Number(-b) + Math.sqrt(Math.pow(Number(b),2); - 4*a*c);)
-							/ 2 * a 
+					let x1 = (-b + Math.sqrt(Math.pow(b,2) - 4*a*c)) /  2 * a 
 							
-					let x2 = Number(-b) - Math.sqrt(Math.pow(b,2);-4*a*c);)
-							/ 2 * a 
+					let x2 = (-b - Math.sqrt(Math.pow(b,2) - 4*a*c)) /  2 * a 
 					
-					console.log(x)     
-				*/
+					console.log(x)
+					
+					console.log(x1)
+					
+					console.log(x2)
+			
 				}
 		
 		</script>
