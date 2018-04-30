@@ -10,30 +10,157 @@
 		<input type = "number" placeholder = "enter a" id = "a">
 		<input type = "number" placeholder = "enter b" id = "b">
 		<input type = "number" placeholder = "enter c" id = "c">
-		 <input type = "button" value = "do the math" onclick = "solvex()">
+			<input type = "button" value = "do the math" onclick = "solvex()">
+			
+			<br><br><br>
+			
+			<canvas id="graph" width="500" height="500" style="border:1px solid black;"></canvas> 
+			
+			<br>
+ 
+  https://www.html5canvastutorials.com/labs/html5-canvas-graphing-an-equation/  
 
-
-		<script>
+			<script>
+				
+				/////////////////Function for calculation//////////////////////
+				
 				function solvex(){	
 					
 					let a = document.getElementById("a").value;
 					let b = document.getElementById("b").value;
 					let c = document.getElementById("c").value;
+					a = Number(a)
+					b = Number(b)
+					c = Number(c)
 					
-					let x = a + b + c
-					
-					let x1 = (-b + Math.sqrt(Math.pow(b,2) - 4*a*c)) /  2 * a 
+					let x1 = (-b + Math.sqrt(Math.pow(b,2) - 4*a*c)) /  (2 * a)
 							
-					let x2 = (-b - Math.sqrt(Math.pow(b,2) - 4*a*c)) /  2 * a 
-					
-					console.log(x)
+					let x2 = (-b - Math.sqrt(Math.pow(b,2) - 4*a*c)) /  (2 * a)
 					
 					console.log(x1)
 					
 					console.log(x2)
-			
+						
 				}
-		
+				
+				
+				///////////below, graphing and canvas code/////////////////////
+				
+				
+				var Canvas = document.getElementById("graph"); 
+
+				if (Canvas.getContext) {
+						Ctx = Canvas.getContext('2d');
+						Ctx.clearRect(0,0,Canvas.width,Canvas.height) ;
+						DrawAxes();
+						RenderFunction(F)
+					} else {
+				}
+				
+				
+				// Returns the right boundary of the logical viewport:
+				function MaxX() {
+				  return 10 ;
+				}
+
+				// Returns the left boundary of the logical viewport:
+				function MinX() {
+				  return -10 ;
+				}
+
+				// Returns the top boundary of the logical viewport:
+				function MaxY() {
+				  return MaxX() * Height / Width;
+				}
+
+				// Returns the bottom boundary of the logical viewport:
+				function MinY() {
+				   return MinX() * Height / Width;
+				}
+
+				// Returns the physical x-coordinate of a logical x-coordinate:
+				function XC(x) {
+				  return (x - MinX()) / (MaxX() - MinX()) * Width ;
+				}
+
+				// Returns the physical y-coordinate of a logical y-coordinate:
+				function YC(y) {
+				  return Height - (y - MinY()) / (MaxY() - MinY()) * Height ;
+				}
+
+				
+				///////this determines the distance between ticks on the x and y axis/////
+				
+				function XTickDelta() {
+					return 1 ; }
+				function YTickDelta() {
+					return 1 ; }
+				
+				function DrawAxes() {
+					Ctx.save() ;
+					Ctx.lineWidth = 2 ;
+					// +Y axis
+					Ctx.beginPath() ;
+					Ctx.moveTo(XC(0),YC(0)) ;
+					Ctx.lineTo(XC(0),YC(MaxY())) ;
+					Ctx.stroke() ;
+
+					// -Y axis
+					Ctx.beginPath() ;
+					Ctx.moveTo(XC(0),YC(0)) ;
+					Ctx.lineTo(XC(0),YC(MinY())) ;
+					Ctx.stroke() ;
+
+					// Y axis tick marks
+					var delta = YTickDelta() ;
+					for (var i = 1; (i * delta) < MaxY() ; ++i) {
+					Ctx.beginPath() ;
+					Ctx.moveTo(XC(0) - 5,YC(i * delta)) ;
+					Ctx.lineTo(XC(0) + 5,YC(i * delta)) ;
+					Ctx.stroke() ;  
+					}
+
+					var delta = YTickDelta() ;
+					for (var i = 1; (i * delta) > MinY() ; --i) {
+					Ctx.beginPath() ;
+					Ctx.moveTo(XC(0) - 5,YC(i * delta)) ;
+					Ctx.lineTo(XC(0) + 5,YC(i * delta)) ;
+					Ctx.stroke() ;  
+					}  
+
+					// +X axis
+					Ctx.beginPath() ;
+					Ctx.moveTo(XC(0),YC(0)) ;
+					Ctx.lineTo(XC(MaxX()),YC(0)) ;
+					Ctx.stroke() ;
+
+					// -X axis
+					Ctx.beginPath() ;
+					Ctx.moveTo(XC(0),YC(0)) ;
+					Ctx.lineTo(XC(MinX()),YC(0)) ;
+					Ctx.stroke() ;
+
+					// X tick marks
+					var delta = XTickDelta() ;
+					for (var i = 1; (i * delta) < MaxX() ; ++i) {
+					Ctx.beginPath() ;
+					Ctx.moveTo(XC(i * delta),YC(0)-5) ;
+					Ctx.lineTo(XC(i * delta),YC(0)+5) ;
+					Ctx.stroke() ;  
+					}
+
+					var delta = XTickDelta() ;
+					for (var i = 1; (i * delta) > MinX() ; --i) {
+					Ctx.beginPath() ;
+					Ctx.moveTo(XC(i * delta),YC(0)-5) ;
+					Ctx.lineTo(XC(i * delta),YC(0)+5) ;
+					Ctx.stroke() ;  
+					}
+					Ctx.restore() ;
+					}
+
+				
+			
 		</script>
 	</body>
 </html>
