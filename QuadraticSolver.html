@@ -10,7 +10,11 @@
 		<input type = "number" placeholder = "enter a" id = "a">
 		<input type = "number" placeholder = "enter b" id = "b">
 		<input type = "number" placeholder = "enter c" id = "c">
-			<input type = "button" value = "do the math" onclick = "solvex()" onclick = "graphx()" onclick = "scalex()">
+			<input type = "button" value = "do the math" 
+			onclick = "solvex()" 
+			onclick = "drawaxes()" 
+			onclick = "graphx()" 
+			onclick = "scalex()">
 			
 			<br><br><br>
 			
@@ -50,6 +54,8 @@
 				
 				var Canvas = document.getElementById("graph"); 
 
+				
+				function drawaxes(){
 				if (Canvas.getContext) {
 						Ctx = Canvas.getContext('2d');
 						Ctx.clearRect(0,0,Canvas.width,Canvas.height) ;
@@ -68,9 +74,9 @@
 					ctx.moveTo(200,0);
 					ctx.lineTo(200,400);
 					ctx.stroke(); // Y axis
+				}
 				
-				
-				// Returns the right boundary of the logical viewport:
+				/* //Returns the right boundary of the logical viewport:
 				function MaxX() {
 				  return 10 ;
 				}
@@ -89,6 +95,11 @@
 				function MinY() {
 				   return MinX() * Height / Width;
 				}
+				*/
+				
+//////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////this function scales the graph based on the functions size/////
+//////////////////////////////////////////////////////////////////////////////////////////////////			
 				
 				
 				function scalex() {
@@ -104,7 +115,7 @@
 					let x2 = (-b - Math.sqrt(Math.pow(b,2) - 4*a*c)) /  (2 * a)
 					
 					
-				switch(x1) {
+				/*switch(x1) {
 					case n:
 						code block
 						break;
@@ -113,19 +124,10 @@
 						break;
 					default:
 						code block
-				}
-									
-					
-					
-					
+				}*/
+				
 				}
 				
-				
-				
-				
-				
-				
-					
 		</script>
 	</body>
 </html>
