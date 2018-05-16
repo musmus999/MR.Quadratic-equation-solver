@@ -52,10 +52,13 @@
 ///////////below, graphing and canvas code///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				
 				
-				var Canvas = document.getElementById("graph"); 
+				
 
 				
 				function drawaxes(){
+				
+				var Canvas = document.getElementById("graph"); 
+				
 				if (Canvas.getContext) {
 						Ctx = Canvas.getContext('2d');
 						Ctx.clearRect(0,0,Canvas.width,Canvas.height) ;
@@ -76,33 +79,15 @@
 					ctx.stroke(); // Y axis
 				}
 				
-				/* //Returns the right boundary of the logical viewport:
-				function MaxX() {
-				  return 10 ;
-				}
-
-				// Returns the left boundary of the logical viewport:
-				function MinX() {
-				  return -10 ;
-				}
-
-				// Returns the top boundary of the logical viewport:
-				function MaxY() {
-				  return MaxX() * Height / Width;
-				}
-
-				// Returns the bottom boundary of the logical viewport:
-				function MinY() {
-				   return MinX() * Height / Width;
-				}
-				*/
-				
 //////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////this function scales the graph based on the functions size/////
 //////////////////////////////////////////////////////////////////////////////////////////////////			
 				
 				
 				function scalex() {
+				
+					var Canvas = document.getElementById("graph"); 
+				
 					let a = document.getElementById("a").value;
 					let b = document.getElementById("b").value;
 					let c = document.getElementById("c").value;
@@ -114,17 +99,32 @@
 							
 					let x2 = (-b - Math.sqrt(Math.pow(b,2) - 4*a*c)) /  (2 * a)
 					
-					
-				/*switch(x1) {
-					case n:
-						code block
-						break;
-					case n:
-						code block
-						break;
-					default:
-						code block
-				}*/
+						
+						
+						
+						// viewport
+						var vX = 0,
+							vY = 0,
+							vWidth = 15,
+							vHeight = (-b / 2 * a) * 1.33;
+							
+						
+											
+						
+						
+						
+						
+						
+					/*switch(x1) {
+						case n:
+							code block
+							break;
+						case n:
+							code block
+							break;
+						default:
+							code block
+					}*/
 				
 				}
 				
