@@ -6,28 +6,30 @@
 	</head> 
 	<body>
 
-
 		<input type = "number" placeholder = "enter a" id = "a">
 		<input type = "number" placeholder = "enter b" id = "b">
 		<input type = "number" placeholder = "enter c" id = "c">
-			<input type = "button" value = "do the math" 
-			onclick = "solvex()" 
-			onclick = "drawaxes()" 
-			onclick = "graphx()" 
-			onclick = "scalex()">
+			<input type = "button" value = "do the math" onclick = "solvex()">
 			
 			<br><br><br>
 			
-			<canvas id="graph" width="400" height="400" style="border:1px solid black;"></canvas> 
-			
-			<br>
- 
-  https://www.html5canvastutorials.com/labs/html5-canvas-graphing-an-equation/  
-
+			<canvas id="graph" width="400" height="400" style="border:1px solid #000000;"></canvas>
+		
 			<script>
+			
+			var c = document.getElementById("graph");
+					var ctx = c.getContext("2d");
+					
+				ctx.moveTo(0, 200);
+					ctx.lineTo(400, 200);
+					ctx.stroke(); // X axis
 				
-				/////////////////Function for calculation//////////////////////
-				
+				ctx.moveTo(200, 0);
+					ctx.lineTo(200, 400);
+					ctx.stroke(); // Y axis
+
+/////////////////Function for calculation//////////////////////onclick = "graphx()" onclick = "scalex()" onclick = "drawaxes()" 
+
 				function solvex(){	
 					
 					let a = document.getElementById("a").value;
@@ -35,55 +37,45 @@
 					let c = document.getElementById("c").value;
 					a = Number(a)
 					b = Number(b)
-					c = Number(c)
+					c = Number(c)-
 					
 					let x1 = (-b + Math.sqrt(Math.pow(b,2) - 4*a*c)) /  (2 * a)
 							
 					let x2 = (-b - Math.sqrt(Math.pow(b,2) - 4*a*c)) /  (2 * a)
 					
-					console.log(x1)
 					
+					console.log(x1)
 					console.log(x2)
 					
 				}
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////below, graphing and canvas code///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////below, graphing and canvas code///////////////////////////////////////////////////////////////////////////////////
 				
+				function drawaxes(){ 
 				
-				
-
-				
-				function drawaxes(){
-				
-				var Canvas = document.getElementById("graph"); 
-				
-				if (Canvas.getContext) {
-						Ctx = Canvas.getContext('2d');
-						Ctx.clearRect(0,0,Canvas.width,Canvas.height) ;
-					} else {
-				}
-				
-				ctx.beginPath(); 
-					ctx.lineWidth="3";
-					ctx.strokeStyle="black"; 
-					ctx.moveTo(0,200);
-					ctx.lineTo(400,200);
+				var c = document.getElementById("graph");
+					var ctx = c.getContext("2d");
+					
+				ctx.moveTo(0, 200);
+					ctx.lineTo(400, 200);
 					ctx.stroke(); // X axis
-						
-				ctx.beginPath(); 
-					ctx.strokeStyle="black"; 
-					ctx.moveTo(200,0);
-					ctx.lineTo(200,400);
+				
+				ctx.moveTo(200, 0);
+					ctx.lineTo(200, 400);
 					ctx.stroke(); // Y axis
+
 				}
+
+/////////////////////////this function draws the line to scale
 				
-//////////////////////////////////////////////////////////////////////////////////////////////////
+				function graphx(){ 
+				
+					ctx.fillRect(10,10,1,1)
+
+				}
+		
 ///////////////////////////////////this function scales the graph based on the functions size/////
-//////////////////////////////////////////////////////////////////////////////////////////////////			
-				
-				
+
 				function scalex() {
 				
 					var Canvas = document.getElementById("graph"); 
@@ -99,23 +91,9 @@
 							
 					let x2 = (-b - Math.sqrt(Math.pow(b,2) - 4*a*c)) /  (2 * a)
 					
-						
-						
-						
-						// viewport
-						var vX = 0,
-							vY = 0,
-							vWidth = 15,
-							vHeight = (-b / 2 * a) * 1.33;
-							
-						
-											
-						
-						
-						
-						
-						
-					/*switch(x1) {
+					let vertex = -b / 2a
+					
+					switch(vertex) {
 						case n:
 							code block
 							break;
@@ -124,13 +102,29 @@
 							break;
 						default:
 							code block
-					}*/
+					}
 				
 				}
 				
 		</script>
 	</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
