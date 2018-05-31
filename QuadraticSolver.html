@@ -9,125 +9,202 @@
 		<input type = "number" placeholder = "enter a" id = "a">
 		<input type = "number" placeholder = "enter b" id = "b">
 		<input type = "number" placeholder = "enter c" id = "c">
+			<input type = "button" value = "do the math" onclick = "graphx()">
 			<input type = "button" value = "do the math" onclick = "solvex()">
 			
 			<br><br><br>
 			
-			<canvas id="graph" width="400" height="400" style="border:1px solid #000000;"></canvas>
-		
+			<canvas id="graph" width="1000" height="1000" style="border:1px solid #000000;"></canvas>
+
+			
 			<script>
 			
+			/*
+			to do
+			-display solutions on the page
+			-css
+			*/
+
 			var c = document.getElementById("graph");
-					var ctx = c.getContext("2d");
+					var ctx = c.getContext("2d");                                 
 					
-				ctx.moveTo(0, 200);
-					ctx.lineTo(400, 200);
-					ctx.stroke(); // X axis
+				ctx.moveTo(0, 500);
+					ctx.lineTo(1000, 500);
+					ctx.stroke(); // X axis drawn
 				
-				ctx.moveTo(200, 0);
-					ctx.lineTo(200, 400);
-					ctx.stroke(); // Y axis
-
-/////////////////Function for calculation//////////////////////onclick = "graphx()" onclick = "scalex()" onclick = "drawaxes()" 
-
-				function solvex(){	
+				ctx.moveTo(500, 0);
+					ctx.lineTo(500, 1000);
+					ctx.stroke(); // Y axis drawn
 					
-					let a = document.getElementById("a").value;
-					let b = document.getElementById("b").value;
-					let c = document.getElementById("c").value;
-					a = Number(a)
-					b = Number(b)
-					c = Number(c)-
+//X axis tick marks  
+				
+				ctx.moveTo(100, 492); 
+					ctx.lineTo(100, 508);
+					ctx.stroke(); //-400 mark
 					
-					let x1 = (-b + Math.sqrt(Math.pow(b,2) - 4*a*c)) /  (2 * a)
-							
-					let x2 = (-b - Math.sqrt(Math.pow(b,2) - 4*a*c)) /  (2 * a)
+				ctx.moveTo(200, 492);
+					ctx.lineTo(200, 508);
+					ctx.stroke(); //-300 mark
 					
+				ctx.moveTo(300, 492);
+					ctx.lineTo(300, 508);
+					ctx.stroke(); //-200 mark
 					
-					console.log(x1)
-					console.log(x2)
+				ctx.moveTo(400, 492);
+					ctx.lineTo(400, 508);
+					ctx.stroke(); //-100 mark
 					
-				}
-
-///////////below, graphing and canvas code///////////////////////////////////////////////////////////////////////////////////
-				
-				function drawaxes(){ 
-				
-				var c = document.getElementById("graph");
-					var ctx = c.getContext("2d");
+				ctx.moveTo(500, 492);
+					ctx.lineTo(500, 508);
+					ctx.stroke(); //0 mark
 					
-				ctx.moveTo(0, 200);
-					ctx.lineTo(400, 200);
-					ctx.stroke(); // X axis
-				
-				ctx.moveTo(200, 0);
-					ctx.lineTo(200, 400);
-					ctx.stroke(); // Y axis
+				ctx.moveTo(600, 492);
+					ctx.lineTo(600, 508);
+					ctx.stroke(); //100 mark
+					
+				ctx.moveTo(700, 492);
+					ctx.lineTo(700, 508);
+					ctx.stroke(); //200 mark
+					
+				ctx.moveTo(800, 492);
+					ctx.lineTo(800, 508);
+					ctx.stroke(); //300 mark
+					
+				ctx.moveTo(900, 492);
+					ctx.lineTo(900, 508);
+					ctx.stroke(); //400 mark
+					
+//Y axis tick marks
 
-				}
+                ctx.moveTo(492, 100); 
+					ctx.lineTo(508, 100);
+					ctx.stroke(); //-400 mark
+					
+				ctx.moveTo(492, 200);
+					ctx.lineTo(508, 200);
+					ctx.stroke(); //-300 mark
+					
+				ctx.moveTo(492, 300);
+					ctx.lineTo(508, 300);
+					ctx.stroke(); //-200 mark
+					
+				ctx.moveTo(492, 400);
+					ctx.lineTo(508, 400);
+					ctx.stroke(); //-100 mark
+					
+				ctx.moveTo(492, 500);
+					ctx.lineTo(508, 500);
+					ctx.stroke(); //0 mark
+					
+				ctx.moveTo(492, 600);
+					ctx.lineTo(508, 600);
+					ctx.stroke(); //100 mark
+					
+				ctx.moveTo(492, 700);
+					ctx.lineTo(508, 700);
+					ctx.stroke(); //200 mark
+					
+				ctx.moveTo(492, 800);
+					ctx.lineTo(508, 800);
+					ctx.stroke(); //300 mark
+					
+				ctx.moveTo(492, 900);
+					ctx.lineTo(508, 900);
+					ctx.stroke(); //400 mark
+					
+				ctx.beginPath();
+					ctx.arc(500, 500, 8, 0, 2 * Math.PI);
+					ctx.stroke(); // origin point
 
-/////////////////////////this function draws the line to scale
+//calculation of zeroes                                                        //onclick = "graphx()" onclick = "scalex()" onclick = "drawaxes()" 
 				
-				function graphx(){ 
-				
-					ctx.fillRect(10,10,1,1)
-
-				}
-		
-///////////////////////////////////this function scales the graph based on the functions size/////
-
-				function scalex() {
-				
-					var Canvas = document.getElementById("graph"); 
-				
-					let a = document.getElementById("a").value;
-					let b = document.getElementById("b").value;
-					let c = document.getElementById("c").value;
+				function solvex(){
+					var a = document.getElementById("a").value;
+					var b = document.getElementById("b").value;
+					var c = document.getElementById("c").value;
 					a = Number(a)
 					b = Number(b)
 					c = Number(c)
-					
-					let x1 = (-b + Math.sqrt(Math.pow(b,2) - 4*a*c)) /  (2 * a)
 							
-					let x2 = (-b - Math.sqrt(Math.pow(b,2) - 4*a*c)) /  (2 * a)
+					var x1 = (-b + Math.sqrt(Math.pow(b,2) - 4*a*c)) /  (2 * a)
+									
+					var x2 = (-b - Math.sqrt(Math.pow(b,2) - 4*a*c)) /  (2 * a)
+						
+					var vertex = -b / 2 * a
 					
-					let vertex = -b / 2a
+					console.log(x1)
+					console.log(x2)
+				}
+
+///////////below, graphing and canvas code/////////////////////////////////////
+
+//plots the line
+				
+				function graphx(){ 
+					var a = document.getElementById("a").value;
+					var b = document.getElementById("b").value;
+					var c = document.getElementById("c").value;
+					a = Number(a)
+					b = Number(b)
+					c = Number(c)
+					var x1 = (-b + Math.sqrt(Math.pow(b,2) - 4*a*c)) /  (2 * a)
+									
+					var x2 = (-b - Math.sqrt(Math.pow(b,2) - 4*a*c)) /  (2 * a)
+						
+					var vertex = -b / 2 * a
+
+					var x;  
+					var i; 
 					
-					switch(vertex) {
-						case n:
-							code block
-							break;
-						case n:
-							code block
-							break;
-						default:
-							code block
+					for (x = -500; x <= 500; x++) {       // x = where along the x axis do dots start 
+							let y = (a * (Math.pow(x, 2)) + (b * x) + c)
+							ctx.fillRect(x + 500,-y + 500,2,2) //-y because (0,0) is on the top left, pos functions appear neg without the - to mirror it over the x axis, +200 on the x and y because the origine is at (200,200)
+					
+					}
+				}
+		
+//scales the graph by 10x based on the functions size
+				
+				/* this is the idea I had for the system to scale the graph to the size of the function because the graph is so big anything 
+				thats closer than about 10 px from the axis is unrecognizeable 
+				but it doesnt work so I commented it out.
+				
+				
+				
+				function scalex() {
+
+					if        ((x2 <= 80 && x2 > 8) || (x1 >= -80 && x1 < -8) || (vertex <= 80 && vertex > 80)) {             //between 8 and 80 
+						
+						for (x = -500; x <= 500; x++) {       
+							let y = (a * (Math.pow(x, 2)) + (b * x) + c)
+							ctx.fillRect(10 * (x + 500),10 * (-y + 500),2,2) //when its small enough, multiply x10
+							}
+						
+					} else if ((x2 <= 800 && x2 > 80) || (x1 >= -800 && x1 < -80) || (vertex <= 800 && vertex > 800)) {       //between 80 and 800(regular)
+						
+						for (x = -500; x <= 500; x++) {       
+							let y = (a * (Math.pow(x, 2)) + (b * x) + c)
+							ctx.fillRect(1 * (x + 500),1 * (-y + 500),2,2)     //when its regular enough, multiply x1
+                            }							
+						
+					} else if ((x2 <= 8000 && x2 > 800) ||(x1 >= -8000 && x1 < -800) || (vertex <= 8000 && vertex > 8000)) {  //between 800 and 8000
+						
+						for (x = -500; x <= 500; x++) {        
+							let y = (a * (Math.pow(x, 2)) + (b * x) + c)
+							ctx.fillRect(0.10 * (x + 500),0.10 * (-y + 500),2,2)   //when its large enough, multiply x0.10
+						    }
+						
+					} else {                                                                                                           
+						
 					}
 				
 				}
 				
+				*/
+				
 		</script>
 	</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
