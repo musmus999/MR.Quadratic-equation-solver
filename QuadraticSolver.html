@@ -5,7 +5,13 @@
 		<link href= "quadratic.css" type= text/css rel= stylesheet>
 	</head> 
 	<body>
-
+	
+		<h1 class = "text">The Quadratic Equation Solver</h1> 
+		
+		<p class = "text">Enter the value of a, b and c when  y = ax<sup>2</sup> + bx + c</p>
+		
+		<br>
+		
 		<input type = "number" placeholder = "enter a" id = "a">
 		<input type = "number" placeholder = "enter b" id = "b">
 		<input type = "number" placeholder = "enter c" id = "c">
@@ -14,20 +20,77 @@
 			
 			<br><br><br>
 			
-			<canvas id="graph" width="1000" height="1000" style="border:1px solid #000000;"></canvas>
+			<canvas id="graph" width="1000" height="1000" style="border:1px solid #FFFFFF;" class = "canvas"></canvas>
 
-			
 			<script>
 			
-			/*
-			to do
-			-display solutions on the page
-			-css
-			*/
-
+//x axis numbers on the ticks	
+			
+			    //negative x
+			
 			var c = document.getElementById("graph");
-					var ctx = c.getContext("2d");                                 
+					var ctx = c.getContext("2d");
+					ctx.fillStyle="#FFFFFF";
+					ctx.strokeStyle="#FFFFFF";
 					
+				ctx.font = "17px Times new roman";
+					ctx.fillText("-400",88,485);
+				
+				ctx.font = "17px Times new roman";
+					ctx.fillText("-300",188,485);
+					
+				ctx.font = "17px Times new roman";
+					ctx.fillText("-200",288,485);	
+					
+				ctx.font = "17px Times new roman";
+					ctx.fillText("-200",388,485);	
+					
+				//positive x	
+					
+				ctx.font = "17px Times new roman";
+					ctx.fillText("100",588,485);	
+					
+				ctx.font = "17px Times new roman";
+					ctx.fillText("200",688,485);
+
+				ctx.font = "17px Times new roman";
+					ctx.fillText("300",788,485);
+                					
+				ctx.font = "17px Times new roman";
+					ctx.fillText("400",888,485);
+					
+//y axis numbers on the ticks 
+
+				ctx.font = "17px Times new roman";
+					ctx.fillText("400",515,105);
+				
+				ctx.font = "17px Times new roman";
+					ctx.fillText("300",515,205);
+					
+				ctx.font = "17px Times new roman";
+					ctx.fillText("200",515,305);	
+					
+				ctx.font = "17px Times new roman";
+					ctx.fillText("200",515,405);	
+					
+				//positive y	
+					
+				ctx.font = "17px Times new roman";
+					ctx.fillText("-100",515,605);	
+					
+				ctx.font = "17px Times new roman";
+					ctx.fillText("-200",515,705);
+
+				ctx.font = "17px Times new roman";
+					ctx.fillText("-300",515,805);
+                					
+				ctx.font = "17px Times new roman";
+					ctx.fillText("-400",515,905);
+					
+					
+					
+//X and Y axis
+				ctx.fillStyle="#FFFFFF";
 				ctx.moveTo(0, 500);
 					ctx.lineTo(1000, 500);
 					ctx.stroke(); // X axis drawn
@@ -165,29 +228,29 @@
 		
 //scales the graph by 10x based on the functions size
 				
+				/*
+				
 				/* this is the idea I had for the system to scale the graph to the size of the function because the graph is so big anything 
 				thats closer than about 10 px from the axis is unrecognizeable 
 				but it doesnt work so I commented it out.
-				
-				
-				
+
 				function scalex() {
 
-					if        ((x2 <= 80 && x2 > 8) || (x1 >= -80 && x1 < -8) || (vertex <= 80 && vertex > 80)) {             //between 8 and 80 
+					if        ((x2 <= 80 && x2 > 8) || (x1 >= -80 && x1 < -8) || (vertex <= 80 && vertex > 80)) {             //below 80 decimal scale
 						
 						for (x = -500; x <= 500; x++) {       
 							let y = (a * (Math.pow(x, 2)) + (b * x) + c)
 							ctx.fillRect(10 * (x + 500),10 * (-y + 500),2,2) //when its small enough, multiply x10
 							}
 						
-					} else if ((x2 <= 800 && x2 > 80) || (x1 >= -800 && x1 < -80) || (vertex <= 800 && vertex > 800)) {       //between 80 and 800(regular)
+					} else if ((x2 <= 800 && x2 > 80) || (x1 >= -800 && x1 < -80) || (vertex <= 800 && vertex > 800)) {       //above 80 (regular)
 						
 						for (x = -500; x <= 500; x++) {       
 							let y = (a * (Math.pow(x, 2)) + (b * x) + c)
 							ctx.fillRect(1 * (x + 500),1 * (-y + 500),2,2)     //when its regular enough, multiply x1
                             }							
 						
-					} else if ((x2 <= 8000 && x2 > 800) ||(x1 >= -8000 && x1 < -800) || (vertex <= 8000 && vertex > 8000)) {  //between 800 and 8000
+					} else if ((x2 <= 8000 && x2 > 800) ||(x1 >= -8000 && x1 < -800) || (vertex <= 8000 && vertex > 8000)) {  //above 800
 						
 						for (x = -500; x <= 500; x++) {        
 							let y = (a * (Math.pow(x, 2)) + (b * x) + c)
@@ -200,11 +263,9 @@
 				
 				}
 				
-				*/
+				/*  */
 				
 		</script>
 	</body>
 </html>
-
-
 
