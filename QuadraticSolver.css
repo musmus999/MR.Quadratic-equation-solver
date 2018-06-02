@@ -1,1 +1,13 @@
+html { 
+  background: url(https://img00.deviantart.net/7dad/i/2012/174/b/6/blackboard_chalk_by_raindart-d54a326.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.text {
+	 text-align: center;
+	 color: #FFFFFF; 
+}
 
